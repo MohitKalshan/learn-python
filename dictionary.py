@@ -102,6 +102,12 @@ print(grid[(0, 0)])
 # Access	            Membership	        Key lookup
 
 # Most Important DSA Application: Frequency Counter
+# Java vs Python frequency counting
+# Map<Integer, Integer> freq = new HashMap<>();
+
+# for (int num : nums) {
+#     freq.put(num, freq.getOrDefault(num, 0) + 1);
+# }
 
 nums = [1, 2, 2, 3, 3, 3, 4]
 # want to count how many times each number appears
@@ -128,3 +134,60 @@ print(freq) # Output: {1: 1, 2: 2, 3: 3, 4: 1}
 # Group Anagrams	                HashMap + Sorting
 # Subarray Sum Equals K	            Prefix Sum + HashMap
 # Longest Consecutive Sequence	    Set
+
+
+# 1. dict.get() – Get value safely
+# In Java: map.get(key);
+
+
+# In Python: my_dict.get(key)
+
+
+
+# The important difference is that Python's get() allows you to provide a default value.
+my_dict = { 
+             "apple": 10, 
+             "banana": 20
+        }
+print(my_dict.get("apple"))       # 10
+print(my_dict.get("mango"))       # None
+# 
+print(my_dict.get("mango", 0))    # 0 - Not found - return default value 
+
+
+
+# How does it work?
+
+# Syntax:
+# dictionary.get(key, default_value)
+
+# - If key exists → returns its value.
+# - If key doesn't exist → returns default value.
+# - If no default is provided → returns None.
+
+
+# 2. dict.items() – Iterate over key-value pairs
+
+for key, value in my_dict.items():
+    print(key, value)
+
+# What does items() return?
+# It returns a dictionary view containing key-value pairs as tuples.
+
+# Important: 
+# items() returns a view, not a list. 
+# It reflects changes made to the dictionary and does not support indexing directly.
+
+# 3. key in dict – Check whether key exists
+# Java equivalent: map.containsKey(key);
+
+print("apple" in my_dict)  # True
+print("mango" in my_dict)  # False
+print(10 in my_dict)            # False
+print(10 in my_dict.values())   # True
+
+# You can also use not in.
+if "mango" not in my_dict:
+    print("Key doesn't exist")
+
+# By default, in checks dictionary keys, not values.
